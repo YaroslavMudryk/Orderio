@@ -24,7 +24,6 @@ namespace Orderio.Web.Controllers.Api.V1
         }
 
         [HttpDelete]
-        [AllowAnonymous]
         public IActionResult CloseSessions(Guid? id, int q)
         {
             return Ok();

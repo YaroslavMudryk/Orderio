@@ -7,7 +7,7 @@ namespace Orderio.Web.Controllers.Api.V1
     public class UsersController : ApiBaseController
     {
         [HttpGet]
-        public IActionResult GetMe(string q)
+        public IActionResult GetMe()
         {
             return Ok();
         }
@@ -20,7 +20,7 @@ namespace Orderio.Web.Controllers.Api.V1
         }
 
         [HttpPut]
-        public IActionResult UpdateMe()
+        public IActionResult Update()
         {
             return Ok();
         }

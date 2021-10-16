@@ -5,6 +5,12 @@ namespace Orderio.Web.Controllers.Api.V1
     [ApiVersion("1.0")]
     public class OrganizationsController : ApiBaseController
     {
+        [HttpPost]
+        public IActionResult CreateOrganization()
+        {
+            return Ok();
+        }
+
         [HttpGet]
         public IActionResult GetOrganizations(string q)
         {
