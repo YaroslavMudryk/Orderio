@@ -6,13 +6,13 @@ namespace Orderio.Web.Controllers.Api.V1
     public class NotificationsController : ApiBaseController
     {
         [HttpGet]
-        public IActionResult GetNotifications(int flag)
+        public IActionResult GetNotifications(int q)
         {
             return Ok();
         }
 
         [HttpPost]
-        public IActionResult ReadNotifications(Guid? id)
+        public IActionResult ReadNotification(Guid? id)
         {
             return Ok();
         }

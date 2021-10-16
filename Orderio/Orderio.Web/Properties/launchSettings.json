@@ -19,7 +19,7 @@
     "Orderio.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/v1/devices",
+      "launchUrl": "api/v1/users/1",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
