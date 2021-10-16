@@ -11,8 +11,14 @@ namespace Orderio.Web.Controllers.Api.V1
             return Ok();
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetOrderById(long id)
+        {
+            return Ok();
+        }
+
         [HttpPost]
-        public IActionResult CreatePost()
+        public IActionResult CreateOrder()
         {
             return Ok();
         }
