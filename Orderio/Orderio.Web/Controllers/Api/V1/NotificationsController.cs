@@ -6,7 +6,7 @@ namespace Orderio.Web.Controllers.Api.V1
     public class NotificationsController : ApiBaseController
     {
         [HttpGet]
-        public IActionResult GetNotifications(int q, int page = 1)
+        public IActionResult GetNotifications(int page = 1, string q)
         {
             return Ok();
         }
