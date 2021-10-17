@@ -18,7 +18,7 @@ namespace Orderio.Web.Controllers.Api.V1
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetUserSession(Guid id)
+        public IActionResult GetSessionById(Guid id)
         {
             return Ok();
         }
