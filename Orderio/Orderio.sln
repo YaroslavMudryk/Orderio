@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orderio.Infrastructure.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orderio.Infrastructure.IoC", "Orderio.Infrastructure.IoC\Orderio.Infrastructure.IoC.csproj", "{7006D2D1-C811-442B-BEF5-45B205747F47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orderio.Contents", "Orderio.Constants\Orderio.Contents.csproj", "{884D988B-E53C-414A-A082-71A6BB17A803}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7006D2D1-C811-442B-BEF5-45B205747F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7006D2D1-C811-442B-BEF5-45B205747F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7006D2D1-C811-442B-BEF5-45B205747F47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{884D988B-E53C-414A-A082-71A6BB17A803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{884D988B-E53C-414A-A082-71A6BB17A803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{884D988B-E53C-414A-A082-71A6BB17A803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{884D988B-E53C-414A-A082-71A6BB17A803}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
