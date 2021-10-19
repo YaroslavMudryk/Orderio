@@ -8,13 +8,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DeviceDetector.NET" Version="4.3.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.11" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.5" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.5" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
+		<PackageReference Include="Yaroslav08.DeviceDetector" Version="1.0.1" />
 	</ItemGroup>
 
 </Project>

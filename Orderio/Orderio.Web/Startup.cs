@@ -1,3 +1,4 @@
+using DeviceDetector.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -21,7 +22,6 @@ namespace Orderio.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSwaggerGen(s =>
@@ -29,7 +29,7 @@ namespace Orderio.Web
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "USN API",
+                    Title = "Orderio API",
                 });
                 s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -54,6 +54,7 @@ namespace Orderio.Web
                     }
                 });
             });
+            services.AddDeviceDetector();
             services.AddApiVersioning(options =>
             {
                 options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
@@ -63,7 +64,6 @@ namespace Orderio.Web
             services.AddControllersWithViews();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -73,7 +73,6 @@ namespace Orderio.Web
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseSwagger();

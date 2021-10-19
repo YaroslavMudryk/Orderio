@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using DeviceDetector;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace Orderio.Web.Controllers.Api.V1
 {
@@ -6,22 +7,26 @@ namespace Orderio.Web.Controllers.Api.V1
     [AllowAnonymous]
     public class IdentityController : ApiBaseController
     {
+        private readonly IDetector _detector;
+        public IdentityController(IDetector detector)
+        {
+            _detector = detector;
+        }
+
+
         [HttpPost("register")]
-        [HttpPost("sign-up")]
         public IActionResult RegisterUser()
         {
             return Ok();
         }
 
         [HttpPost("login")]
-        [HttpPost("sign-in")]
         public IActionResult LoginUser()
         {
-            return Ok(Request.Path.Value);
+            return Ok();
         }
 
         [HttpPost("logout")]
-        [HttpPost("sign-out")]
         public IActionResult LogoutUser()
         {
             return Ok();
