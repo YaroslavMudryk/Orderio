@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orderio.Web", "Orderio.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orderio.Domain", "Orderio.Domain\Orderio.Domain.csproj", "{88A43F21-F2DC-4CCC-BCE2-88DC57A466EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orderio.Application", "Orderio.Application\Orderio.Application.csproj", "{62BC1F8B-EAAE-4859-A391-7F02A641B50E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{88A43F21-F2DC-4CCC-BCE2-88DC57A466EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88A43F21-F2DC-4CCC-BCE2-88DC57A466EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88A43F21-F2DC-4CCC-BCE2-88DC57A466EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62BC1F8B-EAAE-4859-A391-7F02A641B50E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62BC1F8B-EAAE-4859-A391-7F02A641B50E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62BC1F8B-EAAE-4859-A391-7F02A641B50E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62BC1F8B-EAAE-4859-A391-7F02A641B50E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
