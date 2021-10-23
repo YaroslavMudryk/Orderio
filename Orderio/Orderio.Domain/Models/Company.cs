@@ -14,7 +14,7 @@ namespace Orderio.Domain.Models
         [StringLength(10000, MinimumLength = 10)]
         public string History { get; set; }
         [StringLength(15, MinimumLength = 1)]
-        public string CountOfEmployees { get; set; }
+        public string TotalEmployees { get; set; }
         [StringLength(150, MinimumLength = 5)]
         public string EmailAddress { get; set; }
         [StringLength(100, MinimumLength = 3)]
