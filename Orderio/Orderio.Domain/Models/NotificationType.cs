@@ -6,6 +6,8 @@
         Confirm,
         Login,
         LoginAttempt,
-        Logout
+        Logout,
+        NewOrder,
+        NewStatusOrder
     }
 }
