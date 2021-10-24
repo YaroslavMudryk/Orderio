@@ -1,4 +1,5 @@
 ﻿using Orderio.Domain.Models;
+using Orderio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Orderio.Domain.Interfaces
         Task<List<TEntity>> GetAllAsync();
         Task<List<TEntity>> GetListAsync(Predicate<Func<TEntity, bool>> predicate);
         Task<TEntity> GetAsync(Predicate<Func<TEntity, bool>> predicate);
-        Task<PagedList<TEntity>> GetPagedListAsync(Predicate<Func<TEntity, bool>> predicate, int page = 1);
+        Task<PagedList<TEntity>> GetPagedListAsync(Predicate<Func<TEntity, bool>> predicate, int page = 1, int countPerPage = 20);
         #endregion
     }
 }
