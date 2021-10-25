@@ -1,5 +1,4 @@
-﻿using DeviceDetectorNET;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Orderio.Web.Controllers.Api.V1
@@ -9,7 +8,7 @@ namespace Orderio.Web.Controllers.Api.V1
     {
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult GetMe(string q)
+        public IActionResult GetMe()
         {
             return Ok();
         }
