@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 namespace Orderio.Domain.Models
 {
     public class Company : BaseModel<int>
@@ -21,5 +22,6 @@ namespace Orderio.Domain.Models
         public string Phone { get; set; }
         [StringLength(10000, MinimumLength = 1)]
         public string AdditionalInfo { get; set; }
+        public List<Department> Departments { get; set; }
     }
 }
