@@ -6,10 +6,14 @@ namespace Orderio.Domain.Models
     {
         [Required, StringLength(500, MinimumLength = 2)]
         public string Name { get; set; }
-        [StringLength(500, MinimumLength = 2)]
-        public string NameEng { get; set; }
         [Required, StringLength(100, MinimumLength = 1)]
         public string Colour { get; set; } //color in hex format
+        [Required]
+        public bool CanCancelOrder { get; set; }
+        [StringLength(500, MinimumLength = 2)]
+        public string NameEng { get; set; }
+        [StringLength(1000, MinimumLength = 5)]
+        public string Description { get; set; }
         public List<OrderStatus> OrderStatuses { get; set; }
     }
 }
