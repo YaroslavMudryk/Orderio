@@ -22,5 +22,17 @@ namespace Orderio.Web.Controllers.Api.V1
         {
             return Ok();
         }
+
+        [HttpGet("statuses")]
+        public IActionResult GetAllStatuses()
+        {
+            return Ok();
+        }
+
+        [HttpPatch("{id}/status")]
+        public IActionResult UpdateOrderStatus(long id, int statusId)
+        {
+            return Ok();
+        }
     }
 }
