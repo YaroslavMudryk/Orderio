@@ -11,7 +11,8 @@ namespace Orderio.Domain.Models
         [StringLength(500, MinimumLength = 5)]
         public string Address { get; set; }
         [StringLength(1500, MinimumLength = 2)]
-        public string WorkTime { get; set; } //json object
+        public string WorkTime { get; set; } //json object (list of work day)
+        public string Location { get; set; } //json object (like address, lon, lat)
         public List<Product> Products { get; set; }
     }
 }
