@@ -7,14 +7,13 @@ namespace Orderio.Web.Controllers.Api.V1
     public class UsersController : ApiBaseController
     {
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult GetMe()
         {
             return Ok();
         }
 
         [HttpGet("{id}")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public IActionResult GetUserById(int id)
         {
             return Ok();
