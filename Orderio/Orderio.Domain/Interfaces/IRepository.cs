@@ -3,6 +3,7 @@ using Orderio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,9 +22,9 @@ namespace Orderio.Domain.Interfaces
 
         #region Readable
         Task<List<TEntity>> GetAllAsync();
-        Task<List<TEntity>> GetListAsync(Predicate<Func<TEntity, bool>> predicate);
-        Task<TEntity> GetAsync(Predicate<Func<TEntity, bool>> predicate);
-        Task<PagedList<TEntity>> GetPagedListAsync(Predicate<Func<TEntity, bool>> predicate, int page = 1, int countPerPage = 20);
+        Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<PagedList<TEntity>> GetPagedListAsync(Expression<Func<TEntity, bool>> predicate, int page = 1, int countPerPage = 20);
         #endregion
     }
 }

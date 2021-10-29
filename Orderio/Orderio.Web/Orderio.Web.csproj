@@ -17,4 +17,8 @@
 		<PackageReference Include="Yaroslav08.DeviceDetector" Version="1.0.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Orderio.Application\Orderio.Application.csproj" />
+	</ItemGroup>
+
 </Project>
