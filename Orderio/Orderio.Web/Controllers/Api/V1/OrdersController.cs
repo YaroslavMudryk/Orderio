@@ -17,6 +17,14 @@ namespace Orderio.Web.Controllers.Api.V1
             return Ok();
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult CancelOrder(long id, string reason)
+        {
+            if (string.IsNullOrWhiteSpace(reason))
+                return BadRequest();
+            return Ok();
+        }
+
         [HttpPost]
         public IActionResult CreateOrder()
         {
