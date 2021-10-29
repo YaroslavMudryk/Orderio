@@ -42,5 +42,11 @@ namespace Orderio.Web.Controllers.Api.V1
         {
             return Ok();
         }
+
+        [HttpGet("departments/{id}")]
+        public IActionResult GetDepartmentsOrder(int id, int page = 1)
+        {
+            return Ok();
+        }
     }
 }
