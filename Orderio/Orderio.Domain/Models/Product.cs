@@ -13,5 +13,9 @@ namespace Orderio.Domain.Models
         public string Description { get; set; }
         [Required, Column(TypeName = "decimal(9, 2)")]
         public decimal Price { get; set; }
+        [Required]
+        public int CurrentCount { get; set; }
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
     }
 }
