@@ -19,6 +19,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Orderio.Application\Orderio.Application.csproj" />
+	  <ProjectReference Include="..\Orderio.Infrastructure.IoC\Orderio.Infrastructure.IoC.csproj" />
 	</ItemGroup>
 
 </Project>

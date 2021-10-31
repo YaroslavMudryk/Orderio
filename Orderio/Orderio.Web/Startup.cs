@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Orderio.Infrastructure.IoC;
 using System;
 
 namespace Orderio.Web
@@ -21,6 +22,7 @@ namespace Orderio.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOrderioServices();
             services.AddWebSockets(options =>
             {
                 options.KeepAliveInterval = TimeSpan.FromSeconds(10);

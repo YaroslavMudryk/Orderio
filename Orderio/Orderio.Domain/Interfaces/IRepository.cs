@@ -24,6 +24,8 @@ namespace Orderio.Domain.Interfaces
         Task<List<TEntity>> GetAllAsync();
         Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate = null);
+        Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> predicate);
         Task<PagedList<TEntity>> GetPagedListAsync(Expression<Func<TEntity, bool>> predicate, int page = 1, int countPerPage = 20);
         #endregion
     }
