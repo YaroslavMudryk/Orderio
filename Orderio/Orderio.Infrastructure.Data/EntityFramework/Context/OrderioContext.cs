@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orderio.Domain.Models;
+using System.Collections.Generic;
+
 namespace Orderio.Infrastructure.Data.EntityFramework.Context
 {
     public class OrderioContext : DbContext
@@ -20,6 +22,38 @@ namespace Orderio.Infrastructure.Data.EntityFramework.Context
         public OrderioContext(DbContextOptions<OrderioContext> options) : base(options)
         {
             Database.EnsureCreated();
+
+            if (!Users.AnyAsync().GetAwaiter().GetResult())
+            {
+                Users.AddRangeAsync(new List<User>
+                {
+                    new User
+                    {
+                        FullName = "Yaroslav Mudryk",
+                        UserName = "Yarik08",
+                        CreatedAt = System.DateTime.Now,
+                        CreatedBy = "0",
+                        CreatedFromIP = "::1"
+                    },
+                    new User
+                    {
+                        FullName = "Mykyta Medko",
+                        UserName = "Barbosa1800",
+                        CreatedAt = System.DateTime.Now,
+                        CreatedBy = "0",
+                        CreatedFromIP = "::1"
+                    },
+                    new User
+                    {
+                        FullName = "Zhdan Chernavskiy",
+                        UserName = "ZhdanDev",
+                        CreatedAt = System.DateTime.Now,
+                        CreatedBy = "0",
+                        CreatedFromIP = "::1"
+                    }
+                }).GetAwaiter().GetResult();
+                SaveChanges();
+            }
         }
     }
 }

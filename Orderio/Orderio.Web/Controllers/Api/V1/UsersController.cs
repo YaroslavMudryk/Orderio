@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace Orderio.Web.Controllers.Api.V1
 {
     [ApiVersion("1.0")]
+    [AllowAnonymous]
     public class UsersController : ApiBaseController
     {
         private readonly IUserService _userService;
@@ -14,15 +15,25 @@ namespace Orderio.Web.Controllers.Api.V1
             _userService = userService;
         }
 
-
         [HttpGet]
-        public IActionResult GetMe()
+        public async Task<IActionResult> GetUsersAsync(int page = 1)
         {
-            return Ok();
+            var result = await _userService.GetUsersAsync(page);
+            if (result.IsSuccessed)
+                return Ok(result.Data);
+            return NotFound(result.Error);
+        }
+
+        [HttpGet("me")]
+        public async Task<IActionResult> GetMeAsync()
+        {
+            var result = await _userService.GetMeAsync();
+            if (result.IsSuccessed)
+                return Ok(result.Data);
+            return NotFound(result.Error);
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> GetUserByIdAsync(int id)
         {
             var result = await _userService.GetUserByIdAsync(id);
