@@ -1,10 +1,15 @@
 ﻿using Orderio.Application.Mapper;
 using Orderio.Application.Services.Intefaces;
 using Orderio.Application.ViewModels.Orders;
+using Orderio.Application.ViewModels.Products;
 using Orderio.Domain.Interfaces;
+using Orderio.Domain.Models;
 using Orderio.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Orderio.Application.Services.Implementations
@@ -23,9 +28,9 @@ namespace Orderio.Application.Services.Implementations
             _departmentRepository = departmentRepository;
         }
 
-        public async Task<IResult<PagedList<OrderShortViewModel>>> GetDepartmentOrdersAsync(int departmentId, int page = 1)
+        public async Task<IResult<PagedList<OrderShortViewModel>>> GetDepartmentOrdersAsync(int departmentId, int page = 1, int countPerPage = 20)
         {
-            throw new System.NotImplementedException();
+            return await GetOrdersAsync(x => x.DepartmentId == departmentId, page, countPerPage);
         }
 
         public async Task<IResult<OrderViewModel>> GetOrderByIdAsync(int userId, long orderId)
@@ -43,19 +48,27 @@ namespace Orderio.Application.Services.Implementations
             return new Result<OrderViewModel>(orderToView);
         }
 
-        public async Task<IResult<PagedList<OrderShortViewModel>>> GetUserOrdersAsync(int userId, int page = 1)
+        public async Task<IResult<PagedList<OrderShortViewModel>>> GetUserOrdersAsync(int userId, int page = 1, int countPerPage = 20)
         {
-            var ordersFromDb = await _orderRepository.GetPagedOrdersAsync(x => x.UserId == userId, page);
-            if (ordersFromDb == null || ordersFromDb.Count == 0)
-                return new Result<PagedList<OrderShortViewModel>>("Orders not found");
+            return await GetOrdersAsync(x => x.UserId == userId, page, countPerPage);
+        }
 
-            var orders = ordersFromDb.Items;
-
-            var ordersToView = orders.ToOrdersView();
-
-            var pagedListResult = new PagedList<OrderShortViewModel>(orders, ordersFromDb.Total, ordersFromDb.CurrentPage, ordersFromDb.PerPage);
-
-            return new Result<PagedList<OrderShortViewModel>>();
+        public async Task<IResult<PagedList<OrderShortViewModel>>> GetOrdersAsync(Expression<Func<Order, bool>> expression, int page = 1, int countPerPage = 20)
+        {
+            var ordersFromDb = await _orderRepository.GetPagedOrdersAsync(expression, page, countPerPage);
+            if (ordersFromDb.Count == 0)
+                return new Result<PagedList<OrderShortViewModel>>("Oreders not found");
+            var ordersToViews = ordersFromDb.Items.Select(x => new OrderShortViewModel
+            {
+                Id = x.Id,
+                CreatedAt = x.CreatedAt,
+                Price = x.Price,
+                Quantity = x.Quantity,
+                Product = JsonSerializer.Deserialize<ProductViewModel>(x.Product),
+                CurrentStatus = _statusRepository.GetAsync(s => s.Id == x.CurrentStatusId).Result.ToShortStatusView()
+            });
+            var pagedList = new PagedList<OrderShortViewModel>(ordersToViews, ordersFromDb.Total, ordersFromDb.PerPage);
+            return new Result<PagedList<OrderShortViewModel>>(pagedList);
         }
     }
 }
